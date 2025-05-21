@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "eed0c518-17a3-4adc-a331-0b0e143b6ad6",
+		"name": "Book-Review-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45153053",
+		"_collection_link": "https://rajchawan.postman.co/workspace/Raj-Chawan's-Workspace~a24e5122-0117-4868-8958-d93d1153072a/collection/45153053-eed0c518-17a3-4adc-a331-0b0e143b6ad6?action=share&source=collection_link&creator=45153053"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"rajex1\",\r\n  \"email\": \"raj@example1.com\",\r\n  \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"raj@example1.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2l71Ze6H1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"raj@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Add Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2l71Ze6H14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDEyMCwiZXhwIjoxNzQ4NDE4OTIwfQ.TTKMBG_IFoln4WWM1MTcTjmmU-CASedsvZ4RdoORo-",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Clean Code\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"description\": \"A book about writing cleaner, more maintainable code.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2lddwd71Ze6H1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDEyMCwiZXhwIjoxNzQ4NDE4OTIwfQ.TTKMBG_IFoln4WWM1MTcTjmmU-CASedsvZ4RdoORo-",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Clean Code\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"description\": \"A book about writing cleaner, more maintainable code.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2l71Ze6H14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDEyMCwiZXhwIjoxNzQ4NDE4OTIwfQ.TTKMBG_IFoln4WWM1MTcTjmmU-CASedsvZ4RdoORo-",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Clean Code\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"description\": \"A book about writing cleaner, more maintainable code.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/682d994ac36ebdfcc8fa86a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"682d994ac36ebdfcc8fa86a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2l71Ze6H14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDEyMCwiZXhwIjoxNzQ4NDE4OTIwfQ.TTKMBG_IFoln4WWM1MTcTjmmU-CASedsvZ4RdoORo-",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Clean Code\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"description\": \"A book about writing cleaner, more maintainable code.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Add Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2l71Ze6H14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 5,\r\n  \"comment\": \"An amazing book for developers!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/682d884d3ceff9b2ebe2e421/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"682d884d3ceff9b2ebe2e421",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2l71Ze6H14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 6,\r\n  \"comment\": \"Rating Updated!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/reviews/682d8afb3ceff9b2ebe2e429",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"reviews",
+								"682d8afb3ceff9b2ebe2e429"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4NjVlZjdmZTY3MTQyY2I3NThlYyIsImlhdCI6MTc0NzgxNDQ1MCwiZXhwIjoxNzQ4NDE5MjUwfQ.456i5k4NeRFR6cpJKA6h0PntoTai-s3NL2l71Ze6H14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/reviews/682d8afb3ceff9b2ebe2e429",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"reviews",
+								"682d8afb3ceff9b2ebe2e429"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

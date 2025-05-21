@@ -2,8 +2,12 @@ const Book = require('../models/Book');
 const Review = require('../models/Review');
 
 exports.addBook = async (req, res) => {
-  const book = await Book.create({ ...req.body, createdBy: req.user._id });
-  res.status(201).json(book);
+  try {
+    const book = await Book.create({ ...req.body, createdBy: req.user._id });
+    res.status(201).json(book);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 };
 
 exports.getBooks = async (req, res) => {

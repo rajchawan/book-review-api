@@ -4,8 +4,12 @@ exports.addReview = async (req, res) => {
   const existing = await Review.findOne({ user: req.user._id, book: req.params.id });
   if (existing) return res.status(400).json({ message: 'Already reviewed' });
 
-  const review = await Review.create({ ...req.body, user: req.user._id, book: req.params.id });
-  res.status(201).json(review);
+    try {
+      const review = await Review.create({ ...req.body, user: req.user._id, book: req.params.id });
+      res.status(201).json(review);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
 };
 
 exports.updateReview = async (req, res) => {
@@ -15,8 +19,13 @@ exports.updateReview = async (req, res) => {
 
   review.rating = req.body.rating || review.rating;
   review.comment = req.body.comment || review.comment;
-  await review.save();
-  res.json(review);
+  
+  try {
+    await review.save();
+    res.json(review);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 };
 
 exports.deleteReview = async (req, res) => {
