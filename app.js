@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
+
 const cookieParser = require('cookie-parser');
 
 const app = express();
@@ -20,3 +23,19 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.use(express.json());
+
+// Swagger route
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Your routes
+const authRoutes = require('./routes/authRoutes');
+app.use('/auth', authRoutes);
+
+const bookRoutes = require('./routes/bookRoutes');
+app.use('/books', bookRoutes);
+
+const reviewRoutes = require('./routes/reviewRoutes');
+app.use('/reviews', reviewRoutes);
+
